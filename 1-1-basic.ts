@@ -41,12 +41,14 @@
   let unusable: void = undefined; // 💩
 
 
+
   // never : 절대 리턴하면 안되는 함수 (thorwError | 무한루프)
   function throwError(message: string): never {
     throw new Error(message);
-    while (true) { } // unreachable code detected.
+    while (true) { } // unreachable code detected. ts(7027)
   }
   let neverEnding: never; // 💩
+
 
 
   // object : 원시 타입을 제외한 모든 object타입 가능(배열도 OK) => 가능하면 쓰지 말자.
