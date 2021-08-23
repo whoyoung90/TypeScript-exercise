@@ -50,7 +50,7 @@
 
 
   // 3) Rest parameter : "갯수에 상관없이" 동일한 타입의 데이터를 함수 인자로 전달할 때
-  function addNumbers(...numbers: number[]): number {
+  function addNumbers(...numbers: number[]): number {  // A rest parameter must be of an array type ts(2370)
     return numbers.reduce((a, b) => a + b);
   }
   console.log(addNumbers(1, 2)); // expected 1 arguments, but got 2 ts(2554)
