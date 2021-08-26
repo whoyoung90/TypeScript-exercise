@@ -1,6 +1,6 @@
 {
   /**
-   *  Union Types: OR
+   *  Union Types 👍 : OR => 발생할 수 있는 케이스 중에 "하나만" 정하고 싶을 때!
    */
   type Direction = 'left' | 'right' | 'up' | 'down';
   function move(direction: Direction) {
@@ -8,10 +8,13 @@
   }
   move('down');
 
-  type TileSize = 8 | 16 | 32;
-  const tile: TileSize = 16;
 
-  // function: login -> success, fail ⏱
+  type TileSize = 8 | 16 | 32;
+  const tile: TileSize = 16; // 다른 숫자는 들어올 수 없다
+
+
+
+  // 예시1) function: login -> success or fail
   type SuccessState = {
     response: {
       body: string;
@@ -22,7 +25,7 @@
   };
   type LoginState = SuccessState | FailState;
 
-  function login(): LoginState {
+  function login(id: string, password:  number): LoginState {
     return {
       response: {
         body: 'logged in!',
@@ -30,7 +33,14 @@
     };
   }
 
-  // printLoginState(state: LoginState)
+  function login1(id: string, password:  number): LoginState {
+    return {
+      reason: 'fuck network..'
+    }
+  }
+
+
+  // 예시2) printLoginState(state: LoginState)
   // success -> 🎉 body
   // fail -> 😭 reason
   function printLoginState(state: LoginState) {
