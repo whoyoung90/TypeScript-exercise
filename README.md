@@ -7,3 +7,5 @@
 (210823) 1-3-array.ts
 
 (210827) 1-4-alias.ts 1-5-union.ts
+
+(210830) 1-6-discriminated.ts 1-7-intersection.ts
