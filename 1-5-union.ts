@@ -1,8 +1,8 @@
 {
   /**
-   *  Union Types 👍 : OR => 발생할 수 있는 케이스 중에 "하나만" 정하고 싶을 때!
+   *  Union Types 👍: |(or) => 발생할 수 있는 케이스 중에 "하나만" 정하고 싶을 때!
    */
-  type Direction = 'left' | 'right' | 'up' | 'down';
+  type Direction = 'left' | 'right' | 'up' | 'down'; // 문자열 타입의 확장
   function move(direction: Direction) {
     console.log(direction);
   }
@@ -42,9 +42,9 @@
 
   // 예시2) printLoginState(state: LoginState)
   // success -> 🎉 body
-  // fail -> 😭 reason
-  function printLoginState(state: LoginState) {
-    if ('response' in state) {
+  // fail -> 😭 reason 
+  function printLoginState(state: LoginState):void {  // void는 생략 가능!
+    if ('response' in state) { // 💩
       console.log(`🎉 ${state.response.body}`);
     } else {
       console.log(`😭 ${state.reason}`);
