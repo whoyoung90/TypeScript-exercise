@@ -9,3 +9,5 @@
 (210827) 1-4-alias.ts 1-5-union.ts
 
 (210830) 1-6-discriminated.ts 1-7-intersection.ts
+
+(210901) 1-8-enum.ts
