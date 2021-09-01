@@ -1,6 +1,6 @@
 {
   /**
-   * Intersection Types: &(and) 다양한 타입을 하나로 묶어서 사용! <--> union은 |
+   * Intersection Types 👍 : &(and) 다양한 타입을 하나로 묶어서 사용! <--> union은 |
    */
   type Student = {
     name: string;
