@@ -11,3 +11,5 @@
 (210830) 1-6-discriminated.ts 1-7-intersection.ts
 
 (210901) 1-8-enum.ts
+
+(210904) 1-9-inference.ts
