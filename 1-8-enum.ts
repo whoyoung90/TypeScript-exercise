@@ -40,7 +40,7 @@
 
   let day1: Days1 = 'Monday';
   day1 = 'Wednesday';
-  // day1 = 10;  // error  // 타입 보장 👍
+  // day1 = 10;  // error! 타입 보장 👍
 }
 
 
