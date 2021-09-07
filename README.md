@@ -13,3 +13,5 @@
 (210901) 1-8-enum.ts
 
 (210904) 1-9-inference.ts
+
+(210907) 1-10-assertion.ts
