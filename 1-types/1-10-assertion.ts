@@ -2,6 +2,7 @@
   /**
    * Type Assertions 💩 : type이 정말 100% 상황일 때 아니면 쓰지 않는다.
    */
+
   // 1.
   function jsStrFunc(): any {
     return 'hello';
@@ -32,18 +33,19 @@
   }
   const numbers = findNumbers();
   // numbers.push(2); // (error) Object is possibly 'undefined'
-  numbers!.push(2); // ! 무조건 숫자 배열만 받을거야!   <--->  Optional parameter랑 반대 개념
+  numbers!.push(2); // ! 무조건 숫자 배열만 받을거야! undefined이 될 수 없어 💩  <--->  Optional parameter랑 반대 개념
   
-  const numbers1 = findNumbers()!; // !
+  const numbers1 = findNumbers()!; // ! 💩
   numbers1.push(2);
 
 
-  // 3.
-  const button = document.querySelector('class'); // querySelector는  E | null
+  // 3. 그럼에도 Type assertion을 사용하는 경우
+  const button = document.querySelector('class'); // querySelector:  Element | null
+  // button.nodeValue // Object is possibly 'null'.ts(2531)
   if(button) {
-    button.nodeValue;
+    button.nodeValue; // 요소가 존재할 때니까 button: Element 
   }
 
-  const button1 = document.querySelector('class')!;
+  const button1 = document.querySelector('class')!; // 정말정말 있어! 장담할 수 있어!
 
 }
