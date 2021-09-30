@@ -48,4 +48,7 @@
 
   const button1 = document.querySelector('class')!; // 정말정말 있어! 장담할 수 있어!
 
+  // !있으면 => button1: Element
+  // !없으면 => button1: Element | null
+
 }
