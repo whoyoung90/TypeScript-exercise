@@ -62,7 +62,6 @@
   let neverEnding: never; // 💩
 
 
-
   /* object : 원시 타입을 제외한 모든 object타입을 할당할 수 있다. (배열도 OK) => 가능하면 쓰지 말자. */
   function acceptSomeObject(obj: object) {
     // 어떠한 object도 전달할 수 있다 

@@ -28,17 +28,20 @@
   } 
 
 
-  // 타입이 정해진 함수 정의 방법 ✨
+  /* 타입이 정해진 함수 정의 방법 ✨ */
 
-  // 1) Optional parameter : 전달하지 않아도 되는 파라미터 (parameter) lastName: String | undefined
+  /** 
+   * @description 1. Optional parameter
+   * @returns { lastName?: string | undefined  }
+   * 인자를 전달하지 않아도 되는 파라미터
+   */
   function printName(firstName: string, lastName?: string) {
     console.log(firstName);
     console.log(lastName);
   }
   printName('Eren', 'Yegar');
-  printName('Mikasa'); // expected 2 arguments, but got 1 ts(2554)
+  printName('Mikasa'); // expected 2 arguments, but got 1 ts(2554) 문구가 안뜸!
   printName('Ackerman', undefined);
-
 
 
   // 2) Default parameter : 전달하지 않으면 기본 값이 설정되는 파라미터
