@@ -59,13 +59,13 @@
   /**
    * @description 3. Rest parameter
    * @returns { ...numbers: number[] }
-   * "갯수에 상관없이" 동일한 타입의 데이터를 함수 인자로 전달할 때
+   * "갯수에 상관없이" "동일한 타입"의 데이터를 함수 인자로 전달할 때
    */
-  function addNumbers(...numbers: number[]): number {  // A rest parameter must be of an array type ts(2370)
+  function addNumbers(...numbers: number[]): number { // A rest parameter must be of an array type. ts(2370)
     return numbers.reduce((a, b) => a + b);
   }
-  console.log(addNumbers(1, 2)); // expected 1 arguments, but got 2 ts(2554)
-  console.log(addNumbers(1, 2, 3, 4)); // expected 1 arguments, but got 4 ts(2554)
-  console.log(addNumbers(1, 2, 3, 4, 5, 0)); // expected 1 arguments, but got 6 ts(2554)
+  console.log(addNumbers(1, 2)); // expected 1 arguments, but got 2. ts(2554)
+  console.log(addNumbers(1, 2, 3, 4)); // expected 1 arguments, but got 4. ts(2554)
+  console.log(addNumbers(1, 2, 3, 4, 5, 0)); // expected 1 arguments, but got 6. ts(2554)
 
 }
