@@ -24,7 +24,7 @@
   type JSON = 'json';
   const axios: JSON = 'json';
 
-  type Bol = true;
-  const korea: Bol = true;
-  // const japan: Bol = false; // 다른 boolean 못쓴다
+  type Bool = true;
+  const korea: Bool = true;
+  // const japan: Bool = false; // 다른 boolean 못쓴다
 }

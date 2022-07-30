@@ -7,3 +7,5 @@
 1-3-array.ts
 
 1-4-alias.ts
+
+1-5-union.ts
