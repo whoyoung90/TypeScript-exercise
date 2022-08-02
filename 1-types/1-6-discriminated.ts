@@ -10,7 +10,7 @@
     };
   };
   type FailState = {
-    result: 'fail'; // state에 따라 다른 값 or 타입이 지정.
+    result: 'fail'; // state에 따라 다른 값 or 타입을 지정.
     reason: string;
   };
   type LoginState = SuccessState | FailState;

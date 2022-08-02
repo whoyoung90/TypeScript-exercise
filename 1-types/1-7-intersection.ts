@@ -1,25 +1,24 @@
 {
-  /**
-   * Intersection Types 👍 : &(and) 다양한 타입을 하나로 묶어서 사용! <--> union은 |
-   */
+  /* Intersection Type ✨ AND */
+  // 다양한 타입을 하나로 묶어서 사용 <-> union은 or
   type Student = {
     name: string;
     score: number;
   };
-
   type Worker = {
-    empolyeeId: number;
+    employeeId: number;
     work: () => void;
   };
 
-  function internWork(person: Student & Worker) { // &
-    console.log(person.name, person.score, person.empolyeeId, person.work());
-  }
+  function internWork(person: Student & Worker) {
+    console.log(person.name, person.score, person.employeeId, person.work());
+  };
 
+  // 함수 호출시 모든 데이터가 들어있는 object를 전달해야 한다.
   internWork({
-    name: 'Eren',
-    score: 90,
-    empolyeeId: 12345,
+    name: 'wooyoung',
+    score: 5,
+    employeeId: 901015,
     work: () => {},
   });
 }
