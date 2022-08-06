@@ -13,3 +13,5 @@
 1-6-discriminated.ts
 
 1-7-intersesction.ts
+
+1-8-enum.ts
