@@ -15,3 +15,5 @@
 1-7-intersesction.ts
 
 1-8-enum.ts
+
+1-9-inference.ts
