@@ -17,3 +17,5 @@
 1-8-enum.ts
 
 1-9-inference.ts
+
+1-10-assertion.ts

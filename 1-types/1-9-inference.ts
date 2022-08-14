@@ -1,12 +1,12 @@
 {
   /* Type Inference 💩 타입을 명시하지 않으면 자동으로 타입이 결정 */
 
-  // [1] 선언과 동시에 문자열 할당하면 자동으로 string 추론
+  // [1] 선언과 동시에 문자열 할당 => 자동으로 string 추론
   let friend = 'wooyoung';
   // friend = 1; // type error
 
 
-  // [2] Default parameter로 문자열이 할당되었기 때문에 타입을 명시하지 않아도 string 추론
+  // [2] Default parameter에 문자열 할당 => 자동으로 string 추론
   function print(message = 'hi, there') {
     console.log(message);
   };
