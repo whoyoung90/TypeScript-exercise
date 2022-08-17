@@ -19,3 +19,5 @@
 1-9-inference.ts
 
 1-10-assertion.ts
+
+2-1 calculator.ts

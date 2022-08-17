@@ -1,7 +1,6 @@
 {
   /* Type Assertion 💩 */
-  // type이 100% 확실하지 않으면 쓰지 않는다 => 타입스크립트에서 미리 에러 방지 X
-  // 실시간으로 어플리케이션이 죽을 수 있음
+  // 타입스크립트에서 미리 에러로 방지 못하기 때문에 type이 100% 확실하지 않으면 쓰지 말자
 
   // [1] result as string 또는 <string>result
   function jsStrFunc(): any {
@@ -33,22 +32,20 @@
   };
   const numbers = findNumbers();
   // numbers.push(2); // (error) Object is possibly 'undefined'
-  numbers!.push(2); // ! 💩 무조건 숫자 배열만 받을거야! undefined이 될 수 없어
+  numbers!.push(2); // ! 💩 undefined이 아닌 무조건 숫자 배열만 올거라 장담해! (error)
   
-  const numbers1 = findNumbers()!; // ! 💩
-  numbers1.push(2);
+  const numbers1 = findNumbers()!; // ! 💩 (error)
+  numbers1.push(2); // 💩 (error)
 
 
-  // [3] 그럼에도 Type assertion을 사용하는 경우
+  // [3] ! (100% 확실하면 사용! but 생각치 못한 에러가 많이 나올것임..)
   const button = document.querySelector('class'); // querySelector: Element | null
   // console.log(button.nodeValue); // (error) Object is possibly 'null'
+
   if (button) {
-    console.log(button.nodeValue); // 요소가 존재할 때니까 button: Element 
+    console.log(button.nodeValue); // 👍 button: Element 
   };
 
-  const button1 = document.querySelector('class')!; // [Type Assertion]
-  console.log(button1.nodeValue);
-
-  // !있으면 => button1: Element
-  // !없으면 => button1: Element | null
+  const button1 = document.querySelector('class')!; // ! 💩 무조건 Element 이어야! (error)
+  console.log(button1.nodeValue); // ! 💩 (error)
 }
