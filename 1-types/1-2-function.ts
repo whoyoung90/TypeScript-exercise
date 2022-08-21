@@ -50,10 +50,17 @@
    * 아무런 것도 전달하지 않아도 자동적으로 기본 값이 설정되는 파라미터
    * (전달하지 않으면 기본값 설정)
    */
-  function printMessage(message: string = 'Default Message ♥︎') {
+  function printMessage(message: string = 'default message') {
     console.log(message);
   }
   printMessage(); // expected 1 arguments, but got 0 ts(2554) 문구가 안뜸!
+
+  // 상세 주문 정보에서 검색어 기본값에 활용 👍
+  const listOrders = (search: string = "") => {
+    console.log(search);
+  };
+  listOrders();
+  listOrders('AQMGQX016922');
 
 
   /**

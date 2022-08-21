@@ -1,6 +1,6 @@
 {
   /* Type Assertion 💩 */
-  // 타입스크립트에서 미리 에러로 방지 못하기 때문에 type이 100% 확실하지 않으면 쓰지 말자
+  // '타입스크립트에서 미리 에러로 출력 못하기 때문에' type이 100% 확실하지 않으면 쓰지 말자
 
   // [1] result as string 또는 <string>result
   function jsStrFunc(): any {
@@ -23,7 +23,7 @@
   const wrong: any = 5;
   console.log((wrong as Array<number>).push(1)); // (TypeError) wrong.push is not a function
 
-  // 작성할 때는 정상인데, 실행하면 error? JavaScript랑 동일.. 그래서 💩 
+  // 작성할땐 정상인데, 실행하면 error? JavaScript랑 동일.. 그래서 💩 
 
 
   // [2] ! (Optional parameter랑 반대 개념)
@@ -38,7 +38,7 @@
   numbers1.push(2); // 💩 (error)
 
 
-  // [3] ! (100% 확실하면 사용! but 생각치 못한 에러가 많이 나올것임..)
+  // [3] ! (100% 확실하면 사용! but 생각치 못한 에러가 많이 나올거임..)
   const button = document.querySelector('class'); // querySelector: Element | null
   // console.log(button.nodeValue); // (error) Object is possibly 'null'
 
