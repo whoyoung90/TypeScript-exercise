@@ -24,7 +24,7 @@
   printLoginState({ state: 'success', response: { body: 'loaded' } }); // 😃 loaded
   printLoginState({ state: 'fail', reason: 'no network' }); // 😱 no network
 
-  /*  대게 유니온 타입경우 여러 케이스별로 다른 로직을 적용할때는 switch가 더 좋아요. */
+  /* 대게 유니온 타입경우 여러 케이스별로 다른 로직을 적용할때는 switch가 더 좋아요. */
   function printLoginState(state: ResourceLoadState) {
     switch (state.state) {
       case 'loading':
