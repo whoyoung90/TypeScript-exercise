@@ -27,3 +27,5 @@
 2-3 loading.ts
 
 3-1-without-oop.ts
+
+3-2-class.ts
