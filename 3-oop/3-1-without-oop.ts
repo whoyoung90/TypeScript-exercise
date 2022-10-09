@@ -9,9 +9,8 @@
 
   function makeCoffee(shots: number): CoffeeCup {
     if (coffeeBeans < shots * BEANS_GRAMM_PER_SHOT) {
-      throw new Error('Not enough coffee beans!');
-    };
-
+      throw new Error("Not enough coffee beans!");
+    }
     coffeeBeans -= shots * BEANS_GRAMM_PER_SHOT;
     return {
       shots, // key value 이름이 동일하면 생략 가능
