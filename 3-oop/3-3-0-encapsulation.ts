@@ -23,19 +23,19 @@
      * makeMachine으로만 생성이 가능하다! 🅱️
      * (외부에서 new 생성자를 이용하여 생성 금지)
      */
-    static makeMachine(coffeeBeans: number): CoffeeMaker {
-      return new CoffeeMaker(coffeeBeans);
+    static makeMachine(beans: number): CoffeeMaker {
+      return new CoffeeMaker(beans);
     }
 
     /**
      * @description private coffeeBeans
      * fillCoffeeBeans으로만 내부 상태 변경이 가능하다! 🅰️
      */
-    fillCoffeeBeans(beans: number) {
-      if (beans < 0) {
+    fillCoffeeBeans(fill: number) {
+      if (fill < 0) {
         throw new Error("value for beans should be greater than 0");
       }
-      this.coffeeBeans += beans;
+      this.coffeeBeans += fill;
     }
 
     makeCoffee(shots: number): CoffeeCup {
@@ -55,5 +55,5 @@
   // maker.coffeeBeans = 3; // 🅰️ Property 'coffeeBeans' is private and only accessible within class 'CoffeeMaker'.ts(2341)
 
   const maker = CoffeeMaker.makeMachine(32);
-  maker.fillCoffeeBeans(32);
+  maker.fillCoffeeBeans(3);
 }

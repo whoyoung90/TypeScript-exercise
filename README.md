@@ -29,3 +29,7 @@
 3-1-without-oop.ts
 
 3-2-class.ts
+
+3-3-encapsulation.ts
+
+3-4-abstraction.ts

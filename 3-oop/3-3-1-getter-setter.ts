@@ -94,7 +94,7 @@
     constructor(private firstName: string, public lastName: string) {}
   }
   const user = new User("Steve", "Jobs");
-  user.age = 68; // setter로 접근 가능
+  user.age = 33; // setter로 접근 가능
   console.log(user.fullName, user.age);
 
   // user.internalAge = 33;
