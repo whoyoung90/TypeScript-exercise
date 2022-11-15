@@ -4,6 +4,7 @@
     hasMilk: boolean;
   };
 
+  /* class 정의 */
   class CoffeeMaker {
     static BEANS_GRAMM_PER_SHOT: number = 7; // class level
     coffeeBeans: number = 0; // instance (object) level
@@ -29,6 +30,7 @@
     }
   }
 
+  /* object(instance) 정의 */
   const maker = new CoffeeMaker(32);
   console.log(maker);
   const maker2 = new CoffeeMaker(14);

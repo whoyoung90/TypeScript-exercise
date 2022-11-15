@@ -70,10 +70,16 @@
   // maker1.fillCoffeeBeans(32);
   // maker1.makeCoffee(2);
 
+  /* interface에 없는 규약은 에러 */
+  // const maker3: CoffeeMaker = CoffeeMachine.makeMachine(32);
+  // maker3.fillCoffeeBeans(32);
+  // maker3.makeCoffee(2);
+
   /* interface로 타입을 제한해서 받게되면 interface에서 정의된 아이들만 사용할 수 있다 */
   // const maker2: CommercialCoffeeMaker = CoffeeMachine.makeMachine(32);
   // maker2.fillCoffeeBeans(32);
   // maker2.makeCoffee(2);
+  // maker2.clean();
 
   class AmateurUser {
     constructor(private machine: CoffeeMaker) {}

@@ -3,7 +3,7 @@
    * class는 관련된 속성과 함수들을 묶어서 어떤 모양의 데이터가 될거라는 것을 정의
    * 이 정의된 class에 실제로 데이터를 넣어서 object를 만들 수 있다
    *
-   * object마다 새로 만들어져야 하는 데이터가 있다면? 멤버 변수 (coffeeBeans)
+   * object마다 새로 만들어져야 하는 데이터? 멤버 변수 (coffeeBeans)
    * class level에서 활용하고 싶다면? static (BEANS_GRAMM_PER_SHOT, makeMachine)
    */
 
@@ -19,10 +19,9 @@
     hasMilk: boolean;
   };
 
-  /* class 정의 */
   // 멤버 변수 작성시 const let function 제거
   class CoffeeMaker {
-    static BEANS_GRAMM_PER_SHOT: number = 7; // class level => class와 연결되기 때문에 object마다 생성되지 않는다! (중복 제거)
+    static BEANS_GRAMM_PER_SHOT: number = 7; // class level => object마다 생성되지X (중복 제거)
     coffeeBeans: number = 0; // instance (object) level
 
     /* class로 object(instance)를 만들때 항상 호출되는 생성자 함수 */
@@ -37,7 +36,7 @@
     }
 
     makeCoffee(shots: number): CoffeeCup {
-      /* class 멤버 변수에 접근 시 */
+      /* 멤버 변수에 접근 시 */
       // class level => "클래스명" (static은 this안에 있지 않고 class자체에 있으므로)
       // instance (object) level => "this"
       if (this.coffeeBeans < shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT) {
@@ -61,7 +60,7 @@
   /**
    * ✨ static을 선언했으므로 외부에서 다시 class를 안 만들어도 된다
    * static 제거시, 더이상 class level에 있는 함수를 이용할 수 없고 만들어진 object안에서 호출해야 한다. (ex. maker1.makeMachine)
-   * 즉 class 레벨에서 활용하고 싶다면 static을 붙여서 만들자!
+   * 즉 class 레벨에서 활용하고 싶다면 static을 붙이자!
    */
   const maker2 = CoffeeMaker.makeMachine(3);
   console.log(maker2);
