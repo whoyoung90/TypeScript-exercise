@@ -36,6 +36,6 @@
   const maker2 = new CoffeeMaker(14);
   console.log(maker2);
 
-  const maker3 = CoffeeMaker.makeMachine(3);
+  const maker3 = CoffeeMaker.makeMachine(3); // Math.floor
   console.log(maker3);
 }

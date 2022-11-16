@@ -30,6 +30,7 @@
     /**
      * @description private coffeeBeans
      * fillCoffeeBeans으로만 내부 상태 변경이 가능하다! 🅰️
+     * (외부에서 coffeeBeans 상태 변경 금지)
      */
     fillCoffeeBeans(fill: number) {
       if (fill < 0) {
@@ -53,7 +54,8 @@
 
   // const maker = new CoffeeMaker(32); // 🅱️ Constructor of class 'CoffeeMaker' is private and only accessible within the class declaration.ts(2673)
   // maker.coffeeBeans = 3; // 🅰️ Property 'coffeeBeans' is private and only accessible within class 'CoffeeMaker'.ts(2341)
+  // maker.coffeeBeans = -34; // 🅰️
 
-  const maker = CoffeeMaker.makeMachine(32);
-  maker.fillCoffeeBeans(3);
+  const maker = CoffeeMaker.makeMachine(32); // 🅱️
+  maker.fillCoffeeBeans(32); // 🅰️
 }

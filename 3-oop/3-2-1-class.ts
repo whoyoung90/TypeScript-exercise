@@ -10,7 +10,7 @@
   /**
    * @description static
    * static을 선언한 변수는 클래스 내에서 this를 사용 못하며, 해당변수 앞에 클래스명.
-   * static을 선언하면 new 객체를 생성하지 않아도 사용 가능하다. (없으면 new 필수)
+   * static을 선언하면 new 객체를 생성하지 않아도 사용 가능하다.
    * static으로만 선언하면 값은 변경 가능하므로 변하지 않는 값으로 선언하고 싶다면 static readonly.
    */
 
