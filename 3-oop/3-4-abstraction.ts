@@ -65,15 +65,15 @@
       return this.extract(shots);
     }
   }
-  /* CoffeeMachine이라는 타입으로 object를 받게 되면 object안에 있는 모든 public 함수들에 접근 가능 */
-  // const maker1: CoffeeMachine = CoffeeMachine.makeMachine(32);
-  // maker1.fillCoffeeBeans(32);
-  // maker1.makeCoffee(2);
+  /* class를 타입으로 받을 경우 => object(instance)안에 있는 모든 public 함수들에 접근 가능 */
+  const maker1: CoffeeMachine = CoffeeMachine.makeMachine(32);
+  maker1.fillCoffeeBeans(32);
+  maker1.makeCoffee(2);
 
-  /* interface에 없는 규약은 에러 */
-  // const maker3: CoffeeMaker = CoffeeMachine.makeMachine(32);
-  // maker3.fillCoffeeBeans(32);
-  // maker3.makeCoffee(2);
+  /* interface를 타입으로 받을 경우 => interface에 없는 규약은 에러 */
+  const maker3: CoffeeMaker = CoffeeMachine.makeMachine(32);
+  // maker3.fillCoffeeBeans(32); // interface에는 makeCoffee밖에 없으므로 에러!
+  maker3.makeCoffee(2);
 
   /* interface로 타입을 제한해서 받게되면 interface에서 정의된 아이들만 사용할 수 있다 */
   // const maker2: CommercialCoffeeMaker = CoffeeMachine.makeMachine(32);
@@ -116,3 +116,10 @@
   const pro = new ProBarista(maker);
   amateur.makeCoffee();
 }
+
+/**
+ * @description abstraction
+ * 정말 필요한 interface만 노출하여 class를 사용하기 쉽게 만든다. (커피 기계 -> 커피머신)
+ * private을 통한 추상화
+ * interface를 통한 추상화
+ */
