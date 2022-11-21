@@ -4,6 +4,13 @@
     hasMilk: boolean;
   };
 
+  /**
+   * @description abstraction : 정말 필요한 interface만 노출하여 class를 사용하기 쉽게 만든다. (커피 기계 -> 커피머신)
+   * 여러 클래스에 걸쳐서 공통적으로 사용되는 함수들의 규격을 정의함
+   * private을 통한 추상화
+   * interface를 통한 추상화
+   */
+
   /* interface : "나는 이런 행동을 할 수 있어"를 명시해놓은 계약서 */
   interface CoffeeMaker {
     makeCoffee(shots: number): CoffeeCup;
@@ -69,17 +76,17 @@
   const maker1: CoffeeMachine = CoffeeMachine.makeMachine(32);
   maker1.fillCoffeeBeans(32);
   maker1.makeCoffee(2);
+  maker1.clean();
 
   /* interface를 타입으로 받을 경우 => interface에 없는 규약은 에러 */
-  const maker3: CoffeeMaker = CoffeeMachine.makeMachine(32);
-  // maker3.fillCoffeeBeans(32); // interface에는 makeCoffee밖에 없으므로 에러!
-  maker3.makeCoffee(2);
+  const maker2: CoffeeMaker = CoffeeMachine.makeMachine(32);
+  maker2.makeCoffee(2); // fillCoffeeBeans, clean은 없는 규약이므로 에러
 
   /* interface로 타입을 제한해서 받게되면 interface에서 정의된 아이들만 사용할 수 있다 */
-  // const maker2: CommercialCoffeeMaker = CoffeeMachine.makeMachine(32);
-  // maker2.fillCoffeeBeans(32);
-  // maker2.makeCoffee(2);
-  // maker2.clean();
+  const maker3: CommercialCoffeeMaker = CoffeeMachine.makeMachine(32);
+  maker3.fillCoffeeBeans(32);
+  maker3.makeCoffee(2);
+  maker3.clean();
 
   class AmateurUser {
     constructor(private machine: CoffeeMaker) {}
@@ -93,9 +100,9 @@
     constructor(private machine: CommercialCoffeeMaker) {}
     makeCoffee() {
       const coffee = this.machine.makeCoffee(2);
-      console.log(coffee);
       this.machine.fillCoffeeBeans(45);
       this.machine.clean();
+      console.log(coffee);
     }
   }
 
@@ -116,10 +123,3 @@
   const pro = new ProBarista(maker);
   amateur.makeCoffee();
 }
-
-/**
- * @description abstraction
- * 정말 필요한 interface만 노출하여 class를 사용하기 쉽게 만든다. (커피 기계 -> 커피머신)
- * private을 통한 추상화
- * interface를 통한 추상화
- */

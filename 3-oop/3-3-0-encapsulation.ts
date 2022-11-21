@@ -6,6 +6,7 @@
 
   /**
    * @description Encapsulation : 외부에서 설정할 수 없도록 은닉화(private)
+   * 외부에서 알면 안되는 정보, 직접적으로 수정하면 안되는 정보(상태 및 내부에서만 쓰이는 함수)들을 숨기는 테크닉
    * public
    * private => class외부에서 접근 불가
    * protected => class외부에서 접근 불가 + class를 상속한 자식 class내에서는 접근 가능
