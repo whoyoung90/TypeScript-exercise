@@ -33,3 +33,5 @@
 3-3-encapsulation.ts
 
 3-4-abstraction.ts
+
+3-5-inheritance.ts
