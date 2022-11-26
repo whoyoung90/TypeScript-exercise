@@ -72,17 +72,17 @@
       return this.extract(shots);
     }
   }
+
   /* class를 타입으로 받을 경우 => object(instance)안에 있는 모든 public 함수들에 접근 가능 */
   const maker1: CoffeeMachine = CoffeeMachine.makeMachine(32);
   maker1.fillCoffeeBeans(32);
   maker1.makeCoffee(2);
   maker1.clean();
 
-  /* interface를 타입으로 받을 경우 => interface에 없는 규약은 에러 */
+  /* interface로 타입을 제한해서 받을 경우 => interface에 정의된 아이들만 사용할 수 있다 */
   const maker2: CoffeeMaker = CoffeeMachine.makeMachine(32);
   maker2.makeCoffee(2); // fillCoffeeBeans, clean은 없는 규약이므로 에러
 
-  /* interface로 타입을 제한해서 받게되면 interface에서 정의된 아이들만 사용할 수 있다 */
   const maker3: CommercialCoffeeMaker = CoffeeMachine.makeMachine(32);
   maker3.fillCoffeeBeans(32);
   maker3.makeCoffee(2);
@@ -109,17 +109,18 @@
   /**
    * 동일한 Object의 instance일지라도
    * 이 Object는 두가지의 interface를 구현하기 때문에
-   * AmateurUser와 ProBarista는 CoffeeMachine을 받아오는 것이 아니라
+   * AmateurUser와 ProBarista는 class CoffeeMachine을 받아오는 것이 아니라
    * 각자의 interface를 생성자에서 받아오는 것이다!
    * 즉 interface에서 규약된 함수들만 접근이 가능하다
    *
    * AmateurUser와 ProBarista는 interface가 어떻게 구현되어 있는지 신경쓰지 않고
-   * interface에서 규약된 함수들만 이용해서 생성된 object와 의사소통 할 수 있다
+   * interface에서 규약된 함수들만 이용해서 생성된 object와 의사소통 할 수 있다.
+   * (this.machine.✨)
    *
-   * 사용하는 사용자들은 class의 다른 복잡한 기능을 알 필요없이 interface 사용유무만 알면 됨!
+   * 사용하는 사용자들은 class의 다른 복잡한 기능을 알 필요없이 interface 사용 유무만 알면 됨!
    */
   const maker: CoffeeMachine = CoffeeMachine.makeMachine(32);
-  const amateur = new AmateurUser(maker);
-  const pro = new ProBarista(maker);
+  const amateur = new AmateurUser(maker); //
+  const pro = new ProBarista(maker); // fillCoffeeBeans, clean 추가
   amateur.makeCoffee();
 }

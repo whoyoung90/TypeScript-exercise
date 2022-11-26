@@ -12,7 +12,8 @@
     private static BEANS_GRAMM_PER_SHOT: number = 7; // class level
     private coffeeBeans: number = 0; // instance (object) level
 
-    // 상속시 상위 class의 constructor는 public 또는 protected로 변경
+    // 상속시 상위 클래스 constuctor는 public 또는 protected로 변경
+    // cannot extend a class 'CoffeeMachine'. Class constructor is marked as private. (line 66)
     constructor(coffeeBeans: number) {
       this.coffeeBeans = coffeeBeans;
     }
@@ -59,21 +60,22 @@
     }
   }
 
-  /**
-   * interface를 구현할 때는 implements - class를 상속할 때는 extends
-   * 상속시 상위 class의 constuctor는 public(o), protected(o), private(x)
-   */
+  /* interface를 구현할 때는 implements | class를 상속할 때는 extends */
   class CaffeLatteMachine extends CoffeeMachine {
-    // 추가적으로 어떤 데이터를 받아올때는 공통적으로 부모 클래스에서도 필요한 beans도 받아와서 super로 전달
-    constructor(beans: number, public readonly serialNumber: string) {
-      super(beans); // 자식 클래스에서 따로 생성자를 구현하는 경우, 반드시 super 호출
+    /* 자식 클래스에서 따로 constructor를 구현하는 경우, 반드시 super 호출 */
+    // Constructors for derived classes must contain a 'super' call.
+    constructor(coffeeBeans: number, public readonly serialNumber: string) {
+      super(coffeeBeans); // 부모 클래스에서도 필요한 coffeeBeans도 받아와서 super로 전달
     }
+
     private steamMilk(): void {
       console.log("Steaming some milk... 🥛");
     }
-    // 자식 클래스에서 부모 클래스의 함수를 overwriting
+
+    /* 자식 클래스에서 부모 클래스의 함수를 overwriting */
     makeCoffee(shots: number): CoffeeCup {
-      const coffee = super.makeCoffee(shots); // super: 부모 class의 함수를 호출!
+      /* super: 부모 class의 함수를 호출 */
+      const coffee = super.makeCoffee(shots); // 자식에서 부모의 함수를 이용 (grindBeans, preheat, extract)
       this.steamMilk();
       return {
         ...coffee, // 부모꺼 그대로
