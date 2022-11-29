@@ -120,7 +120,7 @@
    * 사용하는 사용자들은 class의 다른 복잡한 기능을 알 필요없이 interface 사용 유무만 알면 됨!
    */
   const maker: CoffeeMachine = CoffeeMachine.makeMachine(32);
-  const amateur = new AmateurUser(maker); //
+  const amateur = new AmateurUser(maker);
   const pro = new ProBarista(maker); // fillCoffeeBeans, clean 추가
   amateur.makeCoffee();
 }

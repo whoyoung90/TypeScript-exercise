@@ -9,11 +9,11 @@
   }
 
   class CoffeeMachine implements CoffeeMaker {
-    private static BEANS_GRAMM_PER_SHOT: number = 7; // class level
-    private coffeeBeans: number = 0; // instance (object) level
+    private static BEANS_GRAMM_PER_SHOT: number = 7;
+    private coffeeBeans: number = 0;
 
-    // 상속시 상위 클래스 constuctor는 public 또는 protected로 변경
-    // cannot extend a class 'CoffeeMachine'. Class constructor is marked as private. (line 66)
+    // 상속시 상위 클래스 constuctor는 public 또는 protected로 변경 🅰️
+    // cannot extend a class 'CoffeeMachine'. Class constructor is marked as private. (line 64)
     constructor(coffeeBeans: number) {
       this.coffeeBeans = coffeeBeans;
     }
@@ -60,12 +60,12 @@
     }
   }
 
-  /* interface를 구현할 때는 implements | class를 상속할 때는 extends */
+  // 🅰️
   class CaffeLatteMachine extends CoffeeMachine {
-    /* 자식 클래스에서 따로 constructor를 구현하는 경우, 반드시 super 호출 */
+    /* 데이터를 추가적으로 더 받기 위해(serialNumber), 자식 클래스에서 "따로" constructor를 구현하는 경우 => 반드시 super 호출 */
     // Constructors for derived classes must contain a 'super' call.
     constructor(coffeeBeans: number, public readonly serialNumber: string) {
-      super(coffeeBeans); // 부모 클래스에서도 필요한 coffeeBeans도 받아와서 super로 전달
+      super(coffeeBeans); // 공통적으로 부모 클래스에서도 필요한 coffeeBeans도 받아와서 super로 전달
     }
 
     private steamMilk(): void {
@@ -84,7 +84,7 @@
     }
   }
 
-  const machine = new CoffeeMachine(23);
+  const machine = new CoffeeMachine(23); // public constructor이므로 new 생성자 가능!
   const latteMachine = new CaffeLatteMachine(23, "SSSS");
   const coffee = latteMachine.makeCoffee(1); // CoffeeMachine을 상속했기 때문에 CoffeeMachine내 모든 함수 사용 가능!
   console.log(coffee);
