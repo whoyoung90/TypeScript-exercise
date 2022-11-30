@@ -13,7 +13,6 @@
     private coffeeBeans: number = 0;
 
     // 상속시 상위 클래스 constuctor는 public 또는 protected로 변경 🅰️
-    // cannot extend a class 'CoffeeMachine'. Class constructor is marked as private. (line 64)
     constructor(coffeeBeans: number) {
       this.coffeeBeans = coffeeBeans;
     }
@@ -60,10 +59,15 @@
     }
   }
 
-  // 🅰️
+  // 🅰️ 상속시 부모 클래스의 constructor는 public 또는 protected
+  // cannot extend a class 'CoffeeMachine'. Class constructor is marked as private.
+
   class CaffeLatteMachine extends CoffeeMachine {
-    /* 데이터를 추가적으로 더 받기 위해(serialNumber), 자식 클래스에서 "따로" constructor를 구현하는 경우 => 반드시 super 호출 */
-    // Constructors for derived classes must contain a 'super' call.
+    /**
+     * @description 데이터를 추가로 더 받기 위해(serialNumber)
+     * 자식 클래스에서 "따로" constructor를 구현하는 경우 => 반드시 super 호출!
+     * Constructors for derived classes must contain a 'super' call.
+     */
     constructor(coffeeBeans: number, public readonly serialNumber: string) {
       super(coffeeBeans); // 공통적으로 부모 클래스에서도 필요한 coffeeBeans도 받아와서 super로 전달
     }

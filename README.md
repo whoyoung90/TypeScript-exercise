@@ -35,3 +35,5 @@
 3-4-abstraction.ts
 
 3-5-inheritance.ts
+
+3-6-polymorphism.ts
