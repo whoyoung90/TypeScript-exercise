@@ -61,8 +61,8 @@
   }
 
   class CaffeLatteMachine extends CoffeeMachine {
-    constructor(beans: number, public readonly serialNumber: string) {
-      super(beans);
+    constructor(coffeeBeans: number, public readonly serialNumber: string) {
+      super(coffeeBeans);
     }
     private steamMilk(): void {
       console.log("Steaming some milk... 🥛");
@@ -91,7 +91,7 @@
    * 다형성의 장점 : 한가지의 class 또는 interface를 통해서 다른 방식으로 구현한 클래스를 만들 수 있다
    * 내부적으로 구현된 다양한 클래스들이
    * 하나의 interface를 구현하거나 또는 동일한 부모 class를 상속했을 때
-   * line 106처럼 동일한 함수를 어떤 클래스인지 구분하지 않고, 공통된 API를 호출할 수 있다
+   * line 106처럼 동일한 함수를 "어떤 클래스인지 구분하지 않고", 공통된 API를 호출할 수 있다
    */
   const machines: CoffeeMaker[] = [
     new CoffeeMachine(16),
@@ -104,16 +104,16 @@
   machines.forEach((machine) => {
     console.log("-------------------------");
     machine.makeCoffee(1);
-    // 배열의 타입이 :CoffeeMaker[] => makeCoffee만 가능!
-    // 배열의 타입이 :CoffeeMachine[] => makeCoffee, fillCoffeeBeans, clean 다 가능
+    // const machines: CoffeeMaker[] => makeCoffee만 가능!
+    // const machines: CoffeeMachine[] => makeCoffee, fillCoffeeBeans, clean 다 가능
   });
 }
 
 /**
  * 다형성이란?
- * 하나의 interface나 부모의 class를 상속한
- * 자식 클래스들이 interface와 부모 class에 있는 함수들을
- * 다른 방식으로 다양하게 구성함으로써, 좀더 다형성을 구현하는 것
+ * 하나의 interface를 구현하거나 동일한 class를 상속한 자식 클래스들이
+ * interface와 부모 class에 있는 함수들을 "다른 방식으로 다양하게 구성함으로써",
+ * 좀더 다형성을 구현하는 것
  *
  * interface와 부모 class에 있는 동일한 함수 API를 통해서
  * 각각의 구현된 자식 클래스의 내부 구현사항을 신경쓰지 않고

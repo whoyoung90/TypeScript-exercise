@@ -1,4 +1,6 @@
 {
+  // 타입스크립트에서는 한가지 이상의 부모 class를 상속할 수 없다!
+  // Class can only extend a single class (extends 한개 이상 불가)
   type CoffeeCup = {
     shots: number;
     hasMilk?: boolean;
@@ -61,25 +63,25 @@
 
     fillCoffeeBeans(beans: number) {
       if (beans < 0) {
-        throw new Error('value for beans should be greater than 0');
+        throw new Error("value for beans should be greater than 0");
       }
       this.coffeeBeans += beans;
     }
 
     clean() {
-      console.log('cleaning the machine...🧼');
+      console.log("cleaning the machine...🧼");
     }
 
     private grindBeans(shots: number) {
       console.log(`grinding beans for ${shots}`);
       if (this.coffeeBeans < shots * CoffeeMachine.BEANS_GRAMM_PER_SHOT) {
-        throw new Error('Not enough coffee beans!');
+        throw new Error("Not enough coffee beans!");
       }
       this.coffeeBeans -= shots * CoffeeMachine.BEANS_GRAMM_PER_SHOT;
     }
 
     private preheat(): void {
-      console.log('heating up... 🔥');
+      console.log("heating up... 🔥");
     }
 
     private extract(shots: number): CoffeeCup {
@@ -102,7 +104,7 @@
       super(beans);
     }
     private steamMilk(): void {
-      console.log('Steaming some milk... 🥛');
+      console.log("Steaming some milk... 🥛");
     }
     makeCoffee(shots: number): CoffeeCup {
       const coffee = super.makeCoffee(shots);
@@ -128,7 +130,7 @@
     constructor(
       beans: number,
       private sugar: SugarSource,
-      private milk: MilkFrother,
+      private milk: MilkFrother
     ) {
       super(beans);
     }
