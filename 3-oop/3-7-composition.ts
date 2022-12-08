@@ -1,4 +1,5 @@
 {
+  // Favor COMPOSITION over inheritance
   // 타입스크립트에서는 한가지 이상의 부모 class를 상속할 수 없다!
   // Class can only extend a single class (extends 한개 이상 불가)
   type CoffeeCup = {
@@ -15,6 +16,8 @@
     addSugar(cup: CoffeeCup): CoffeeCup;
   }
 
+  /* 각각의 기능별로 따로 class를 만들어 둠으로써 필요한 곳에서 가져다가 쓰는 composition */
+  // 싸구려 우유 거품기
   class CheapMilkSteamer implements MilkFrother {
     makeMilk(cup: CoffeeCup): CoffeeCup {
       console.log(`Steaming some milk🥛...`);
@@ -24,7 +27,7 @@
       };
     }
   }
-
+  // 설탕 제조기
   class FancyMilkSteamer implements MilkFrother {
     makeMilk(cup: CoffeeCup): CoffeeCup {
       console.log(`Fancy!!!! Steaming some milk🥛...`);

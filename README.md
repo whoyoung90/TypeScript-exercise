@@ -37,3 +37,5 @@
 3-5-inheritance.ts
 
 3-6-polymorphism.ts
+
+3-7-composition.ts
