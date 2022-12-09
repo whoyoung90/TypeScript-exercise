@@ -15,8 +15,8 @@
     private static BEANS_GRAMM_PER_SHOT: number = 7; // class level
     private coffeeBeans: number = 0; // instance (object) level
 
-    private constructor(beans: number) {
-      this.coffeeBeans = beans;
+    private constructor(coffeeBeans: number) {
+      this.coffeeBeans = coffeeBeans;
     }
 
     /**

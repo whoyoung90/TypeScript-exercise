@@ -25,8 +25,8 @@
     coffeeBeans: number = 0; // instance (object) level
 
     /* class로 object(instance)를 만들때 항상 호출되는 생성자 함수 */
-    constructor(beans: number) {
-      this.coffeeBeans = beans; // instance (object) level => "this"
+    constructor(coffeeBeans: number) {
+      this.coffeeBeans = coffeeBeans; // instance (object) level => "this"
     }
 
     /* ✨ constructor를 호출하지 않겠다면? */

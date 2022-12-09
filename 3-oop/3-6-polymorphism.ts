@@ -61,8 +61,8 @@
   }
 
   class CaffeLatteMachine extends CoffeeMachine {
-    constructor(coffeeBeans: number, public readonly serialNumber: string) {
-      super(coffeeBeans);
+    constructor(beans: number, public readonly serialNumber: string) {
+      super(beans);
     }
     private steamMilk(): void {
       console.log("Steaming some milk... 🥛");

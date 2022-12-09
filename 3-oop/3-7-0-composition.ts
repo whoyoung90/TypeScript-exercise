@@ -107,11 +107,11 @@
       super(beans);
     }
     // private steamMilk(): void {
-    //   console.log("Steaming some milk... 🥛"); // 반복된 코드
+    //   console.log("Steaming some milk... 🥛");
     // }
     makeCoffee(shots: number): CoffeeCup {
       const coffee = super.makeCoffee(shots);
-      // this.steamMilk(); // 반복된 코드 (내부적으로 steamMilk를 이용하는 것이 아니라)
+      // this.steamMilk(); // 내부적으로 steamMilk를 이용하는 것이 아니라 외부에서 주입하자
       // return {
       //   ...coffee,
       //   hasMilk: true,
@@ -124,12 +124,12 @@
     constructor(private beans: number, private sugar: AutomaticSugarMixer) {
       super(beans);
     }
-    // getSugar() {
+    // private getSugar() {
     //   console.log("Getting some sugar 🍬");
     // }
     makeCoffee(shots: number): CoffeeCup {
       const coffee = super.makeCoffee(shots);
-      // this.getSugar();
+      // this.getSugar(); // 내부적으로 getSugar를 이용하는 것이 아니라 외부에서 주입하자
       // return {
       //   ...coffee,
       //   hasSugar: true,
@@ -138,7 +138,10 @@
     }
   }
 
-  // 필요한 기능을 외부에서 가져옴으로써, composition을 이용해 필요한 기능을 재사용
+  /**
+   * class SweetCaffeLatteMachine extends SweetCoffeeMaker, CaffeLatteMachine ❌
+   * 필요한 기능을 외부에서 가져옴으로써, composition을 이용해 필요한 기능을 재사용
+   */
   class SweetCaffeLatteMachine extends CoffeeMachine {
     constructor(
       private beans: number,

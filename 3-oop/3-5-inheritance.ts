@@ -68,8 +68,8 @@
      * 자식 클래스에서 "따로" constructor를 구현하는 경우 => 반드시 super 호출!
      * Constructors for derived classes must contain a 'super' call.
      */
-    constructor(coffeeBeans: number, public readonly serialNumber: string) {
-      super(coffeeBeans); // 공통적으로 부모 클래스에서도 필요한 coffeeBeans도 받아와서 super로 전달
+    constructor(beans: number, public readonly serialNumber: string) {
+      super(beans); // 공통적으로 부모 클래스에서도 필요한 coffeeBeans도 받아와서 super로 전달
     }
 
     private steamMilk(): void {

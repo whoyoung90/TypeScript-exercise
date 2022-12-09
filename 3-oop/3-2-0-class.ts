@@ -9,8 +9,8 @@
     static BEANS_GRAMM_PER_SHOT: number = 7; // class level
     coffeeBeans: number = 0; // instance (object) level
 
-    constructor(beans: number) {
-      this.coffeeBeans = beans;
+    constructor(coffeeBeans: number) {
+      this.coffeeBeans = coffeeBeans;
     }
 
     static makeMachine(coffeeBeans: number): CoffeeMaker {
