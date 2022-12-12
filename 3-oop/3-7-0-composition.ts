@@ -84,7 +84,7 @@
     }
   }
   // 설탕 제조기
-  class AutomaticSugarMixer {
+  class CandySugarMixer {
     private getSugar() {
       console.log("Getting some sugar from candy 🍬"); // 외부에서 설탕을 받아와서
       return true;
@@ -121,7 +121,7 @@
   }
 
   class SweetCoffeeMaker extends CoffeeMachine {
-    constructor(private beans: number, private sugar: AutomaticSugarMixer) {
+    constructor(private beans: number, private sugar: CandySugarMixer) {
       super(beans);
     }
     // private getSugar() {
@@ -146,7 +146,7 @@
     constructor(
       private beans: number,
       private milk: CheapMilkSteamer,
-      private sugar: AutomaticSugarMixer
+      private sugar: CandySugarMixer
     ) {
       super(beans);
     }
@@ -156,6 +156,15 @@
       return this.milk.makeMilk(sugarAdded);
     }
   }
-}
 
-// 클래스와 클래스 간에 긴밀히 관계짓는 것은 좋지 않다! => 다음 강의
+  const cheapMilkMaker = new CheapMilkSteamer();
+  const candySugar = new CandySugarMixer();
+
+  const sweetMachine = new SweetCoffeeMaker(12, candySugar);
+  const latteMachine = new CaffeLatteMachine(12, "SS", cheapMilkMaker);
+  const sweetLatteMachine = new SweetCaffeLatteMachine(
+    12,
+    cheapMilkMaker,
+    candySugar
+  );
+}

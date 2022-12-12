@@ -4,14 +4,51 @@
     hasMilk?: boolean;
     hasSugar?: boolean;
   };
+  interface MilkFrother {
+    makeMilk(cup: CoffeeCup): CoffeeCup;
+  }
+
+  interface SugarSource {
+    addSugar(cup: CoffeeCup): CoffeeCup;
+  }
+
+  class CheapMilkSteamer implements MilkFrother {
+    makeMilk(cup: CoffeeCup): CoffeeCup {
+      console.log(`Steaming some milk🥛...`);
+      return {
+        ...cup,
+        hasMilk: true,
+      };
+    }
+  }
+
+  class FancyMilkSteamer implements MilkFrother {
+    makeMilk(cup: CoffeeCup): CoffeeCup {
+      console.log(`Fancy!!!! Steaming some milk🥛...`);
+      return {
+        ...cup,
+        hasMilk: true,
+      };
+    }
+  }
+
+  class AutomaticSugarMixer implements SugarSource {
+    addSugar(cuppa: CoffeeCup): CoffeeCup {
+      console.log(`Adding sugar...`);
+      return {
+        ...cuppa,
+        hasSugar: true,
+      };
+    }
+  }
 
   interface CoffeeMaker {
     makeCoffee(shots: number): CoffeeCup;
   }
 
   class CoffeeMachine implements CoffeeMaker {
-    private static BEANS_GRAMM_PER_SHOT: number = 7;
-    private coffeeBeans: number = 0;
+    private static BEANS_GRAMM_PER_SHOT: number = 7; // class level
+    private coffeeBeans: number = 0; // instance (object) level
 
     constructor(coffeeBeans: number) {
       this.coffeeBeans = coffeeBeans;
@@ -59,81 +96,51 @@
     }
   }
 
-  // 싸구려 우유 거품기
-  class CheapMilkSteamer {
+  class CaffeLatteMachine extends CoffeeMachine {
+    constructor(beans: number, public readonly serialNumber: string) {
+      super(beans);
+    }
     private steamMilk(): void {
       console.log("Steaming some milk... 🥛");
     }
-    makeMilk(cup: CoffeeCup): CoffeeCup {
+    makeCoffee(shots: number): CoffeeCup {
+      const coffee = super.makeCoffee(shots);
       this.steamMilk();
       return {
-        ...cup,
+        ...coffee,
         hasMilk: true,
       };
     }
   }
-  // 설탕 제조기
-  class CandySugarMixer {
-    private getSugar() {
-      console.log("Getting some sugar from candy 🍬"); // 외부에서 설탕을 받아와서
-      return true;
-    }
-    addSugar(cup: CoffeeCup): CoffeeCup {
-      const sugar = this.getSugar();
-      return {
-        ...cup,
-        hasSugar: sugar,
-      };
-    }
-  }
-
-  class CaffeLatteMachine extends CoffeeMachine {
-    constructor(
-      beans: number,
-      public readonly serialNumber: string,
-      private milkFrother: CheapMilkSteamer // 필요한 것을 외부에서 주입 (dependency injection)
-    ) {
-      super(beans);
-    }
-    makeCoffee(shots: number): CoffeeCup {
-      const coffee = super.makeCoffee(shots);
-      return this.milkFrother.makeMilk(coffee); // 우유 거품을 추가해서 새로운 커피 리턴
-    }
-  }
 
   class SweetCoffeeMaker extends CoffeeMachine {
-    constructor(private beans: number, private sugar: CandySugarMixer) {
-      super(beans);
-    }
     makeCoffee(shots: number): CoffeeCup {
       const coffee = super.makeCoffee(shots);
-      return this.sugar.addSugar(coffee);
+      return {
+        ...coffee,
+        hasSugar: true,
+      };
     }
   }
 
   class SweetCaffeLatteMachine extends CoffeeMachine {
     constructor(
-      private beans: number,
-      private milk: CheapMilkSteamer,
-      private sugar: CandySugarMixer
+      beans: number,
+      private sugar: SugarSource,
+      private milk: MilkFrother
     ) {
       super(beans);
     }
     makeCoffee(shots: number): CoffeeCup {
       const coffee = super.makeCoffee(shots);
-      const sugarAdded = this.sugar.addSugar(coffee);
-      return this.milk.makeMilk(sugarAdded);
+      const milkCoffee = this.milk.makeMilk(coffee);
+      return this.sugar.addSugar(milkCoffee);
     }
   }
-
-  const cheapMilkMaker = new CheapMilkSteamer();
-  const candySugar = new CandySugarMixer();
-
-  const sweetMachine = new SweetCoffeeMaker(12, candySugar);
-  const latteMachine = new CaffeLatteMachine(12, "SS", cheapMilkMaker);
-  const sweetLatteMachine = new SweetCaffeLatteMachine(
-    12,
-    cheapMilkMaker,
-    candySugar
+  const machine = new SweetCaffeLatteMachine(
+    32,
+    new AutomaticSugarMixer(),
+    new FancyMilkSteamer()
   );
+  machine.makeCoffee(2);
 }
