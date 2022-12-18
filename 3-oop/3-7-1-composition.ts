@@ -1,4 +1,9 @@
 {
+  /**
+   * @description Composition 사용시
+   * class-class 커플링으로 제약시키지 말고
+   * class-interface 디커플링을 통해 서로 다른 객체들을 만들 수 있다
+   */
   type CoffeeCup = {
     shots: number;
     hasMilk?: boolean;
@@ -133,13 +138,13 @@
 
   class CaffeLatteMachine extends CoffeeMachine {
     /**
-     * class CheapMilkSteamer 대신 interface MilkFrother
-     * (class로 커플링 되어있던 아이들을 interface를 통해 디커플링)
+     * ✅ class CheapMilkSteamer로 커플링 되어있던 아이들을 interface를 통해 디커플링
+     * 기존에는 CheapMilkSteamer만 연결 -> interface를 통해 Cheap, Fancy, Cold 모두 연결 가능!
      */
     constructor(
       beans: number,
       public readonly serialNumber: string,
-      private milkFrother: MilkFrother
+      private milkFrother: MilkFrother // ✅
     ) {
       super(beans);
     }
@@ -151,8 +156,8 @@
 
   class SweetCoffeeMaker extends CoffeeMachine {
     /**
-     * class CandySugarMixer 대신 interface SugarProvider
-     * (class로 커플링 되어있던 아이들을 interface를 통해 디커플링)
+     * ✅ class CandySugarMixer로 커플링 되어있던 아이들을 interface를 통해 디커플링
+     * 기존에는 CandySugar만 연결 -> interface를 통해 CandySugar, Sugar 모두 연결 가능!
      */
     constructor(private beans: number, private sugar: SugarProvider) {
       super(beans);
@@ -164,11 +169,11 @@
   }
 
   class SweetCaffeLatteMachine extends CoffeeMachine {
-    /* class로 커플링 되어있던 아이들을 interface를 통해 디커플링 */
+    /* ✅ class로 커플링 되어있던 아이들을 interface를 통해 디커플링 */
     constructor(
       private beans: number,
-      private milk: MilkFrother,
-      private sugar: SugarProvider
+      private milk: MilkFrother, // ✅
+      private sugar: SugarProvider // ✅
     ) {
       super(beans);
     }
@@ -181,7 +186,7 @@
 
   // Milk
   const cheapMilkMaker = new CheapMilkSteamer();
-  const FancyMilkMaker = new FancyMilkSteamer();
+  const fancyMilkMaker = new FancyMilkSteamer();
   const coldMilkMaker = new ColdMilkSteamer();
 
   // Sugar
@@ -193,13 +198,12 @@
   const sweetMachine = new SweetCoffeeMaker(12, sugar);
 
   const latteMachine = new CaffeLatteMachine(12, "SS", cheapMilkMaker);
+  const fancyMachine = new CaffeLatteMachine(12, "SS", fancyMilkMaker);
   const coldLatteMachine = new CaffeLatteMachine(12, "SS", coldMilkMaker);
 
   const sweetLatteMachine = new SweetCaffeLatteMachine(
     12,
-    cheapMilkMaker,
-    candySugar
+    cheapMilkMaker, // cheap, fancy, cold 모두 가능
+    candySugar // candySugar, sugar 모두 가능
   );
 }
-
-// 우리가 원하는 기능들을 조립해서 내가 어떤 커피 기계를 만들건지 결정할 수 있다(09:00~)

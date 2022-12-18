@@ -1,4 +1,12 @@
 {
+  /**
+   * @description Composition을 통해 "상속을 전혀 사용하지 않고도"
+   * CoffeeMachine 클래스에 필요한 다양한 형태의 우유와 설탕을 주입함으로써
+   * 원하는 다양한 형태의 object들을 만들 수 있다!
+   *
+   * 자식 클래스 CaffeLatteMachine, SweetCoffeeMaker, SweetCaffeLatteMachine 제거하고
+   * 부모 클래스 하나로 한방에!
+   */
   type CoffeeCup = {
     shots: number;
     hasMilk?: boolean;
@@ -15,8 +23,8 @@
 
     constructor(
       coffeeBeans: number,
-      private milk: MilkFrother, // 추가
-      private sugar: SugarProvider // 추가
+      private milk: MilkFrother, // interface 추가
+      private sugar: SugarProvider // interface 추가
     ) {
       this.coffeeBeans = coffeeBeans;
     }
@@ -153,7 +161,7 @@
 
   // Milk
   const cheapMilkMaker = new CheapMilkSteamer();
-  const FancyMilkMaker = new FancyMilkSteamer();
+  const fancyMilkMaker = new FancyMilkSteamer();
   const coldMilkMaker = new ColdMilkSteamer();
   const noMilk = new NoMilk();
 
@@ -167,11 +175,8 @@
   const sweetMachine = new CoffeeMachine(12, noMilk, sugar);
 
   const latteMachine = new CoffeeMachine(12, cheapMilkMaker, noSugar);
+  const fancyMachine = new CoffeeMachine(12, fancyMilkMaker, noSugar);
   const coldLatteMachine = new CoffeeMachine(12, coldMilkMaker, noSugar);
 
   const sweetLatteMachine = new CoffeeMachine(12, cheapMilkMaker, candySugar);
 }
-
-// composition을 통해 상속을 전혀 사용하지 않고도
-// CoffeeMachine 클래스에 필요한 다양한 형태의 우유와 설탕을 주입함으로써
-// 원하는 다양한 형태의 object들을 만들 수 있다!

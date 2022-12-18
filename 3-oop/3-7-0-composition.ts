@@ -116,7 +116,7 @@
       //   ...coffee,
       //   hasMilk: true,
       // };
-      return this.milkFrother.makeMilk(coffee); // 우유 거품을 추가해서 새로운 커피 리턴
+      return this.milkFrother.makeMilk(coffee);
     }
   }
 

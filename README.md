@@ -39,3 +39,5 @@
 3-6-polymorphism.ts
 
 3-7-composition.ts
+
+3-8-abstract-class.ts
