@@ -19,7 +19,6 @@
   interface CoffeeMaker {
     makeCoffee(shots: number): CoffeeCup;
   }
-
   class CoffeeMachine implements CoffeeMaker {
     private static BEANS_GRAMM_PER_SHOT: number = 7;
     private coffeeBeans: number = 0;
