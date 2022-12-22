@@ -41,5 +41,3 @@
 3-7-composition.ts
 
 3-8-abstract-class.ts
-
-Branch protection rules Test

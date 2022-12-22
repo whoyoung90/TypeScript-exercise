@@ -170,7 +170,7 @@
   const sugar = new SugarMixer();
   const noSugar = new NoSugar();
 
-  /* 내가 원하는 용도에 따라 SweetCoffeeMaker를 재사용하여 서로 다른 객체를 만들 수 있다 */
+  /* 내가 원하는 용도에 따라 "부모 클래스"를 재사용하여 서로 다른 객체를 만들 수 있다 */
   const sweetCandyMachine = new CoffeeMachine(12, noMilk, candySugar);
   const sweetMachine = new CoffeeMachine(12, noMilk, sugar);
 

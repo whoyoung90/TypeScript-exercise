@@ -58,8 +58,9 @@
      * 🅱️ abstract method
      * 자식 클래스마다 달라질 수 있는 행동이 있다면 abstract method!
      *
-     * 자식 클래스마다 다르게 구현해야 하므로 접근이 필요: private -> protected 변경
+     * 자식 클래스마다 다르게 구현해야 하므로 "접근 필요": private -> protected 변경
      * ('private' modifier cannot be used with 'abstract' modifier.)
+     *
      * 추상적인 메소드이기 때문에, 구현사항을 전부 제거! 선언만 하자!
      */
     protected abstract extract(shots: number): CoffeeCup;
