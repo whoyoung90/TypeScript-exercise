@@ -41,3 +41,7 @@
 3-7-composition.ts
 
 3-8-abstract-class.ts
+
+4-stack.ts
+
+5-1-function.ts
