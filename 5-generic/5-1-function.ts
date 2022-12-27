@@ -1,5 +1,5 @@
 {
-  // number type만 핸들링 💩
+  // type number만 핸들링 가능 💩
   function checkNotNullBad(arg: number | null): number {
     if (arg == null) {
       throw new Error("not valid number!");
@@ -7,7 +7,7 @@
     return arg;
   }
 
-  // 어떤 타입을 넣어도 무조건 any type 출력 => 타입정보 사라짐 💩
+  // 어떤 타입을 넣어도 무조건 type any 💩 (타입 보장x)
   function checkNotNullAnyBad(arg: any | null): any {
     if (arg == null) {
       throw new Error("not valid number!");
@@ -19,8 +19,8 @@
   /**
    * @description Generic ✨
    * 어떤 타입이든 받을 수 있다.
-   * 이것을 쓸때 타입이 결정되므로 타입을 보장!
-   * 사용하는 사람이 어떤 타입인지 결정할 수 있다 (유연하지만 타입 보장)
+   * "사용할 때 타입이 결정"되므로 => 타입 보장 GOOD!
+   * 사용하는 사람이 타입을 결정할 수 있다 (유연하지만 타입 보장)
    */
   function checkNotNull<T>(arg: T | null): T {
     if (arg == null) {
@@ -29,5 +29,5 @@
     return arg;
   }
   const number = checkNotNull(123); // const number: 123
-  const boal: boolean = checkNotNull(true); // const boal: true -> const boal: boolean
+  const boal: boolean = checkNotNull(true); // const boal: true -> 구체적으로 수정 const boal: boolean
 }

@@ -26,6 +26,8 @@
 
 2-3 loading.ts
 
+[ OOP ]
+
 3-1-without-oop.ts
 
 3-2-class.ts
@@ -44,4 +46,8 @@
 
 4-stack.ts
 
+[ GENERIC ]
+
 5-1-function.ts
+
+5-2-class.ts
