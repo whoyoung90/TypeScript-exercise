@@ -20,7 +20,9 @@ class SimpleEither<L, R> implements Either<L, R> {
 const either: Either<number, number> = new SimpleEither(4, 5);
 either.left(); // 4
 either.right(); // 5
-const best = new SimpleEither({ name: "ellie" }, "hello");
+
+const best = new SimpleEither(4, "hello");
+const best1 = new SimpleEither({ name: "ellie" }, "hello");
 
 /**
  * 특정 타입으로 지정하면 에러!

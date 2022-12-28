@@ -92,7 +92,7 @@
     //     hasMilk: true,
     //   };
     // }
-    /* 🅱️ abstract method */
+    /* 🅱️ overwriting 안하고 abstract method */
     protected extract(shots: number): CoffeeCup {
       this.steamMilk();
       return {
@@ -110,7 +110,7 @@
     //     hasSugar: true,
     //   };
     // }
-    /* 🅱️ abstract method */
+    /* 🅱️ overwriting 안하고 abstract method */
     protected extract(shots: number): CoffeeCup {
       return {
         shots,
