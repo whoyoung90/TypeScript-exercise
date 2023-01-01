@@ -25,7 +25,7 @@ const best = new SimpleEither(4, "hello");
 const best1 = new SimpleEither({ name: "ellie" }, "hello");
 
 /**
- * 특정 타입으로 지정하면 에러!
+ * (Line 9) 특정 타입으로 지정하면 에러!
  * Type 'number' is not assignable to type 'L'.
  * 'L' could be instantiated with an arbitrary type which could be unrelated to 'number'.
  */
