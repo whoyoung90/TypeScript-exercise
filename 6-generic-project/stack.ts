@@ -24,7 +24,9 @@ class StackImpl<T> implements Stack<T> {
     if (this.size === this.capacity) {
       throw new Error("Stack is full!");
     }
-    const node = { value, next: this.head }; // head에 타입이 명시되어있기 때문에 타입 추론 활용! (명확한 부분에서는 타입 정보 생략)
+    /* head에 타입이 명시되어있기 때문에(Line 17) 타입 추론 활용! */
+    // const node: StackNode<T> = { value, next: this.head }; // 명확한 부분에서는 타입 정보 생략
+    const node = { value, next: this.head };
     this.head = node;
     this._size++;
   }
