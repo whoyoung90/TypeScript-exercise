@@ -20,7 +20,5 @@ function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
   return obj[key];
 }
 
-// extends keyof T => K는 object안에 포함된 key들 중 하나!
-// (Argument of type '"score"' is not assignable to parameter of type '"name" | "age"')
-
-// T[K] => V 대신
+// ✅ <extends keyof T>를 추가해야 T[K] 및 obj[key] 가능!!
+// Type 'K' cannot be used to index type 'T'

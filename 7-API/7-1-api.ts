@@ -30,3 +30,12 @@ function isCat(animal: Animal): animal is Cat {
 }
 
 console.log(animals.every<Cat>(isCat)); // false
+
+/* 참고 */
+export interface IEditorAction {
+  readonly id: string;
+  readonly label: string;
+  readonly alias: string;
+  isSupported(): boolean;
+  run(): Promise<void>; // run은 호출시, IEditorAction이 끝날때까지 기다리는 동기가 아닌 비동기
+}

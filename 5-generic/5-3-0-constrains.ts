@@ -36,14 +36,18 @@
   // bobAfterPayBad.workPartTime(); // ❌
 
   /**
-   * ✅ 세부적인 조건 constrains(1)
+   * @description 세부적인 조건 constrains(1)
    * 아무 타입이나 다 되는건 아니고 <T extends Employee>만 가능하도록!
    * Generic이긴 한데, 타입은 extends Employee만 가능해!
    *
    * Generic도 조건들을 걸어둠으로써 좀더 제한적인 범위 내에서 일반화된 Generic을 이용할 수 있다
    */
+
+  // ✅ <extends Employee>를 추가해야 .pay() 가능!!
+  // Property 'pay' does not exist on type 'T'.
+
   function payGood<T extends Employee>(employee: T): T {
-    employee.pay(); // <extends Employee>를 추가해야 .pay() 가능!! Property 'pay' does not exist on type 'T'.
+    employee.pay();
     return employee;
   }
   const ellieAfterPay = payGood(ellie);
