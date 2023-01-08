@@ -16,9 +16,9 @@ console.log(getValue(obj, "name")); // ellie
 console.log(getValue(obj, "age")); // 20
 console.log(getValue(obj2, "animal")); // 🐕
 
+// ✅ <extends keyof T>를 추가해야 T[K] 및 obj[key] 가능!!
+// Type 'K' cannot be used to index type 'T'
+
 function getValue<T, K extends keyof T>(obj: T, key: K): T[K] {
   return obj[key];
 }
-
-// ✅ <extends keyof T>를 추가해야 T[K] 및 obj[key] 가능!!
-// Type 'K' cannot be used to index type 'T'

@@ -14,7 +14,7 @@ const result = students.every((student) => {
 });
 console.log(result); // false
 
-/* sub type 예제 */
+/* Sub-Type 예제 */
 class Animal {}
 class Cat extends Animal {
   isCat: boolean = true;
@@ -23,12 +23,10 @@ class Dog extends Animal {
   isDog: boolean = false;
 }
 const animals: Animal[] = [new Cat(), new Cat(), new Dog()];
-
 // 콜백함수 isCat
 function isCat(animal: Animal): animal is Cat {
   return (animal as Cat).isCat !== undefined;
 }
-
 console.log(animals.every<Cat>(isCat)); // false
 
 /* 참고 */
