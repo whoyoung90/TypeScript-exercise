@@ -1,5 +1,7 @@
 # 🚩 TypeScript-exercise
 
+## [ 1-Types ]
+
 1-1-basic.ts
 
 1-2-function.ts
@@ -20,13 +22,15 @@
 
 1-10-assertion.ts
 
+## [ 2-Types-Project-Quiz ]
+
 2-1 calculator.ts
 
 2-2 games.ts
 
 2-3 loading.ts
 
-[ 3-OOP ]
+## [ 3-OOP ]
 
 3-1-without-oop.ts
 
@@ -44,9 +48,11 @@
 
 3-8-abstract-class.ts
 
+## [ 4-OOP-project ]
+
 4-stack.ts
 
-[ 5-GENERIC ]
+## [ 5-Generic ]
 
 5-1-function.ts
 
@@ -54,6 +60,16 @@
 
 5-3-constrains.ts
 
+## [ 6-Generic-project ]
+
 6-stack.ts
 
+## [ 7-API ]
+
 7-1-api.ts
+
+## [ 8-Exception ]
+
+8-1-exception.ts
+
+8-2-handling.ts

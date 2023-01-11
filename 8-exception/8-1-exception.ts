@@ -15,10 +15,10 @@ function readFile(fileName: string): string {
 function closeFile(fileName: string) {}
 
 function run() {
-  const fileName = "not exist!💩";
+  const fileName = "not exist!💩"; // 🅰️ 에러와 관련없는 부분은 그대로 두고
 
   try {
-    console.log(readFile(fileName)); // 정말 에러가 발생하는 부분만 try로 감싸주기
+    console.log(readFile(fileName)); // 🅰️ 정말 에러가 발생하는 부분만 try로 감싸주기
   } catch (error) {
     console.log(`catched!!`);
     return; // return 했음에도
