@@ -11,7 +11,7 @@
    * interface를 통한 추상화
    */
 
-  /* interface : "나는 이런 행동을 할 수 있어"를 명시해놓은 계약서 */
+  /* interface : "나는 이런 행동을 할 수 있어"를 명시해놓은 "규격사항" */
   interface CoffeeMaker {
     makeCoffee(shots: number): CoffeeCup;
   }
