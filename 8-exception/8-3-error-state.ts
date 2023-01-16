@@ -51,8 +51,9 @@
 
   const client = new NetworkClient();
   const service = new UserService(client);
+
   const app = new App(service);
   app.run();
 }
 
-// 내가 예상할 수 있는 상태(성공 or 실패)들을 type으로 정의하는 것이 예상 가능한 프로그래밍!
+// 예상 가능한 프로그래밍이란? 내가 예상할 수 있는 상태(성공 or 실패)들을 type으로 정의하는 것

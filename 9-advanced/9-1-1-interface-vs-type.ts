@@ -1,11 +1,11 @@
 {
   /**
    * @description Interface
-   * 특정한 규격사항을 정의하거나, 이 규격을 통해서 어떤 것(class)이 구현될 때 사용
+   * 특정한 "규격사항"을 정의하거나, 이 규격을 통해서 어떤 것(class)이 구현될 때 사용
    */
   interface CoffeeMaker {
     coffeeBeans: number;
-    makeCoffee: (shots: number) => void; // 메서드는 interface에!
+    makeCoffee: (shots: number) => void; // 그래서 보통 메서드는 interface에 있음!
   }
   class CoffeeMachine implements CoffeeMaker {
     coffeeBeans: number;

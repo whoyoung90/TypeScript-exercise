@@ -17,7 +17,7 @@
   const obj2: PositionInterface = {
     x: 1,
     y: 1,
-    z: 1, // Line 44
+    z: 1, // Line 49 결합
   };
 
   /* 둘다 class 가능 */
@@ -28,6 +28,7 @@
   class Pos2 implements PositionInterface {
     x: number;
     y: number;
+    z: number; // Line 49 결합
   }
 
   /**
