@@ -1,7 +1,7 @@
 {
   /**
    * @description Interface
-   * 특정한 "규격사항"을 정의하거나, 이 규격을 통해서 어떤 것(class)이 구현될 때 사용
+   * 특정한 "규격사항"을 정의하거나, 이 규격을 통해서 어떤 것(class)을 구현할 목적으로 사용
    */
   interface CoffeeMaker {
     coffeeBeans: number;

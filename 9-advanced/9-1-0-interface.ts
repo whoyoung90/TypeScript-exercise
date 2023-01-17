@@ -53,7 +53,7 @@
 
   /**
    * ✅ Type alias만 computed properties 가능
-   * ex) utility, map type, index type
+   * ex) utility, index type, mapped type
    */
   type Person = {
     name: string;
