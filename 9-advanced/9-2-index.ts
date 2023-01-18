@@ -7,7 +7,7 @@
 
   /**
    * @description index type
-   * type도 index를 기반으로 타입을 결정할 수 있다!
+   * index를 기반으로 타입을 결정할 수 있다!
    * 다른 타입의 key에 접근해서 그 key의 value의 타입을 그대로 다시 선언할 수 있다!
    */
   type Animal = {
@@ -21,7 +21,7 @@
 
   type Gender = Animal["gender"]; // 'male' | 'female'
 
-  type Keys = keyof Animal; // 'name' | 'age' | 'gender' (문자열 union 생성!)
+  type Keys = keyof Animal; // 'name' | 'age' | 'gender' (string union 생성!)
   const key: Keys = "name";
 
   type Person = {
