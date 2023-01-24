@@ -1,15 +1,12 @@
 {
-  const obj = {
-    name: "ellie",
-  };
-  obj.name; // ellie
-  obj["name"]; // ellie
-
   /**
    * @description index type
    * index를 기반으로 타입을 결정할 수 있다!
-   * 다른 타입의 key에 접근해서 그 key의 value의 타입을 그대로 다시 선언할 수 있다!
+   * 다른 타입의 key에 접근해서 그 key의 value 타입을 그대로 다시 선언할 수 있다!
+   *
+   * keyof ✨
    */
+
   type Animal = {
     name: string;
     age: number;
