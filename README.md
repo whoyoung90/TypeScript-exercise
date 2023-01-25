@@ -85,3 +85,5 @@
 9-3-map-type.ts
 
 9-4-condition-type.ts
+
+9-5-readonly.ts

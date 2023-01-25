@@ -34,7 +34,9 @@
   // video.author = "jobs"; // Cannot assign to 'author' because it is a read-only property.
 
   /* Case 3 ✨ 기존 value 타입을 쓰거나 null이 가능하도록! */
-  type Nullable<T> = { [P in keyof T]: T[P] | null };
+  type Nullable<T> = {
+    [P in keyof T]: T[P] | null;
+  };
 
   const obj2: Nullable<Video> = {
     title: "hi",
@@ -51,3 +53,18 @@
     set(value: T): void;
   };
 }
+
+// type VideoOptional = {
+//   title?: string;
+//   author?: string;
+// };
+
+// type VideoReadOnly = {
+//   readonly title: string;
+//   readonly author: string;
+// };
+
+// type VideoNullable = {
+//   readonly title: string | null;
+//   readonly author: string | null;
+// };

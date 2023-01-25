@@ -1,6 +1,6 @@
 /**
  * @descripton condition type
- * 조건적으로 결정할 수 있는 타입
+ * 조건적으로 결정할 수 있는 타입 (조건이 맞으면 해당 타입을 선택한다!)
  */
 
 type Check<T> = T extends string ? boolean : number;
