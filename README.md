@@ -87,3 +87,5 @@
 9-4-condition-type.ts
 
 9-5-readonly.ts
+
+9-6-partial.ts
