@@ -16,5 +16,3 @@
     // todo.title = 'jaja'; // Cannot assign to 'title' because it is a read-only property.
   }
 }
-
-// -?: 👉 Optional(?:)과 반대로 "절대적으로 있어야 하는것"

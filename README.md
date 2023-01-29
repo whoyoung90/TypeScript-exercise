@@ -89,3 +89,7 @@
 9-5-readonly.ts
 
 9-6-partial.ts
+
+9-7-pick.ts
+
+9-8-omit.ts
