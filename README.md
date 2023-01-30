@@ -93,3 +93,5 @@
 9-7-pick.ts
 
 9-8-omit.ts
+
+9-9-record.ts
