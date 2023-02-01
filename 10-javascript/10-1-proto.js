@@ -3,34 +3,14 @@ const y = {};
 console.log(x);
 console.log(y);
 console.log(x.toString());
-console.log(x.__proto__ === y.__proto__);
+console.log(x.__proto__ === y.__proto__); // true (x와 y는 동일한 object의 proto를 상속하고 있기 때문)
+
+/** 
+ * array -> Array(concat, find, filter..) -> ✅Object(toString(), valueOf(), watch()...)
+ * 
+ * javascript의 모든 object들은 ✅Object라는 proto를 가지고 있는것!
+ * 그래서 어떠한 종류의 object든 상관없이 toString()을 이용할 수 있는 이유!
+ */
 
 const array = [];
 console.log(array);
-
-console.clear();
-
-function CoffeeMachine(beans) {
-  this.beans = beans;
-  // Instance member level
-  /* this.makeCoffee = shots => {
-    console.log('making... ☕️');
-  }; */
-}
-// Prototype member level
-CoffeeMachine.prototype.makeCoffee = shots => {
-  console.log('making... ☕️');
-};
-const machine1 = new CoffeeMachine(10);
-const machine2 = new CoffeeMachine(20);
-console.log(machine1);
-console.log(machine2);
-
-function LatteMachine(milk) {
-  this.milk = milk;
-}
-LatteMachine.prototype = Object.create(CoffeeMachine.prototype);
-
-const latteMachine = new LatteMachine(123);
-console.log(latteMachine);
-latteMachine.makeCoffee();

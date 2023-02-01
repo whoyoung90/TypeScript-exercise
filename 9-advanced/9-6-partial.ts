@@ -23,7 +23,7 @@
     label: "study",
     priority: "high",
   };
-  const updated = updateTodo(todo, { priority: "low" });
+  const updated = updateTodo(todo, { priority: "low" }); // 하나만 있어도 됨 😉
   console.log(updated);
 
   // {
