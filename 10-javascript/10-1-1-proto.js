@@ -1,7 +1,7 @@
 function CoffeeMachine(beans) {
   this.beans = beans;
 
-  /* 🅰️ Instance member level (만들어지는 인스턴스마다 포함이 되므로) */
+  /* 🅰️ Instance member level (만들어지는 인스턴스마다 포함되므로) */
   // this.makeCoffee = shots => {
   //   console.log('making... ☕️');
   // };
@@ -16,7 +16,7 @@ console.log(machine);
 // beans: 10, makeCoffee, ▶︎ __proto__: Object 🅰️
 // beans: 10, ▶︎ __proto__: Object 🅱️ (__proto__안에 공통적으로 makeCoffee 포함)
 
-// machine -> CoffeeMachine -> Object✅
+// machine -> CoffeeMachine( makeCoffee ...) -> Object✅
 
 /**
  * @description 자바스크립트에서도 타입스크립트처럼 interface나 generic 같은 다양한 아이들은 없지만

@@ -95,3 +95,9 @@
 9-8-omit.ts
 
 9-9-record.ts
+
+## [ 10-javascript ]
+
+10-1-proto.js
+
+10-2-this.js
