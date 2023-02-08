@@ -14,12 +14,12 @@ CoffeeMachine.prototype.makeCoffee = shots => {
 const machine = new CoffeeMachine(10);
 console.log(machine);
 // beans: 10, makeCoffee, ▶︎ __proto__: Object 🅰️
-// beans: 10, ▶︎ __proto__: Object 🅱️ (__proto__안에 공통적으로 makeCoffee 포함)
+// beans: 10, ▶︎ __proto__: Object 🅱️ (__proto__안에 공통적으로 makeCoffee 포함! CoffeeMachine.prototype에 선언했으므로)
 
 // machine -> CoffeeMachine( makeCoffee ...) -> Object✅
 
 /**
- * @description 자바스크립트에서도 타입스크립트처럼 interface나 generic 같은 다양한 아이들은 없지만
+ * @description 자바스크립트는 타입스크립트처럼 interface나 generic 같은 다양한 아이들은 없지만
  * prototype을 이용해서 "상속"을 구현할 수 있다
  * 
  * prototype이란?

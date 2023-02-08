@@ -14,9 +14,6 @@
 /**
  * @description 자바스크립트언어에서 this란?
  * 호출한 문맥에 따라서 this가 동적으로 달라진다.
- * 
- * 해당 object와 연결하고 싶다면 
- * bind함수 또는 화살표함수를 사용해야 한다!
  */
 
 console.log(this); // Window
@@ -25,23 +22,28 @@ function simpleFunc() {
   console.log(this);
 }
 simpleFunc(); // Window (함수로서 호출)
-window.simpleFunc(); // Window
+window.simpleFunc(); // Window (메서드로서 호출)
 
 console.clear();
 
 class Counter {
   count = 0;
   increase = function () {
-    console.log(this)
-  }
+    console.log(this);
+  };
 }
 const counter = new Counter();
 counter.increase(); // Counter (메서드로서 호출)
 
+/** 
+ * let const로 선언한 변수는 Window에 등록되어 있지 않으므로 
+ * caller를 호출하는 것은 Window가 아니라 그 어떤 Object도 아니기 때문에 
+ * undefined이 호출
+ * */
 const caller = counter.increase;
 caller(); // undefined 🤔
 
 class Bob { }
 const bob = new Bob();
 bob.run = counter.increase;
-bob.run(); // Bob
+bob.run(); // Bob (메서드로서 호출)
