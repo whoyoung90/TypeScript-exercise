@@ -4,7 +4,6 @@
  */
 // class Car {
 //   engine: number;
-
 //   move() {
 //     this.engine++;
 //   }
@@ -35,11 +34,12 @@ class Counter {
 const counter = new Counter();
 counter.increase(); // Counter (메서드로서 호출)
 
-/** 
- * let const로 선언한 변수는 Window에 등록되어 있지 않으므로 
- * caller를 호출하는 것은 Window가 아니라 그 어떤 Object도 아니기 때문에 
- * undefined이 호출
- * */
+/**
+ * counter.increase 포인터를 변수 caller에 할당하게 되면 "this 정보를 잃게된다."
+ * 
+ * let const로 선언된 변수는 Window에 등록되어 있지 않으므로
+ * caller를 호출하는 것은 Window가 아니라 그 어떤 Object도 아니기 때문에 undefined 호출
+ */
 const caller = counter.increase;
 caller(); // undefined 🤔
 
@@ -47,3 +47,18 @@ class Bob { }
 const bob = new Bob();
 bob.run = counter.increase;
 bob.run(); // Bob (메서드로서 호출)
+
+/**
+ * @description 자바스크립트 전역에서 정의된 함수는 기본적으로 Window 객체에서 접근 가능!
+ * 우리가 선언한 함수는 기본적으로 Window 객체에 등록!
+ * 
+ * 그러나 let const로 선언된 변수는 Window에 등록되어 있지 않으므로
+ * Window 객체에서 접근이 불가능하다!
+ */
+function hellowWorld() { console.log("hello") };
+window.hellowWorld(); // hello
+
+const ellie = "ellie";
+let jobs = "jobs";
+// window.jobs // 접근 불가능
+// window.ellie // 접근 불가능
