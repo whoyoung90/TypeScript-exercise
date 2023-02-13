@@ -1,6 +1,6 @@
 /**
  * @description 특정 타입스크립트 파일을 자바스크립트로 변경
- * @returns { tsc logging.ts -w }
+ * @returns { tsc src/logging/logging.ts -w }
  *
  * @description tsconfig가 있는 폴더의 "모든" 타입스크립트를 자바스크립트로 변경
  * @returns { tsc -w }
