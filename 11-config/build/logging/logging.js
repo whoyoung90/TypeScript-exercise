@@ -1,3 +1,4 @@
+"use strict";
 /**
  * @description 특정 타입스크립트 파일을 자바스크립트로 변경
  * @returns { tsc src/logging/logging.ts -w }
@@ -9,3 +10,4 @@
  * @returns { tsc -w } tsconfig.json 설정대로 변경!
  */
 console.log("hello!");
+//# sourceMappingURL=logging.js.map

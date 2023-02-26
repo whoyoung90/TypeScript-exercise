@@ -5,11 +5,11 @@
     /* Projects */
     // "incremental": true, // 이전 컴파일과 비교해서 수정된 사항이 없다면 그 부분을 유지하고 "수정된 내용만 컴파일" => (장점) 컴파일 시간이 빨라짐 (단점) 이전 컴파일 정보를 보관해야 하므로 PC 용량 증가
     // "composite": true, // (incremental과 함께 사용) 이전에 빌드된 정보들을 기억하고 있어서 다음 빌드시 더 빠르게 빌드되도록 도와줌
-    // "tsBuildInfoFile": "./.tsbuildinfo", // incremental": true이면 관련된 정보들을 담을 수 있는 파일을 지정
+    // "tsBuildInfoFile": "./.tsbuildinfo", // "incremental: true"이면 관련된 정보들을 담을 수 있는 파일을 지정
 
     /* Language and Environment */
-    "target": "ES6", // 어떤 버전으로 컴파일할지 설정
-    // "lib": [], // 어떤 라이브러리를 이용할 것인지 선택적으로 결정
+    "target": "ES5", // 어떤 버전으로 컴파일할지 설정
+    // "lib": [], // 어떤 라이브러리를 이용할 것인지 선택적으로 결정 (보통은 lib를 따로 선택하지 않고 target에서 따라나오는 것을 이용)
     // "jsx": "preserve", // 리액트와 관련된 것을 사용할 것인지 설정
 
     /* Modules */
@@ -17,7 +17,7 @@
     "rootDir": "./src", //Specify the root folder within your source files.
 
     /* JavaScript Support */
-    // "allowJs": true, // 프로젝트에 타입스크립트와 자바스크립트 파일을 섞어서 쓸건지
+    // "allowJs": true, // 프로젝트에서 타입스크립트와 자바스크립트 파일을 섞어서 쓸건지
     // "checkJs": true, // 자바스크립트 파일에서도 에러(경고) 뜰 수 있도록 설정 => allowJs + checkJs 같이 true로 해서 진행
 
     /* Emit */
@@ -40,5 +40,5 @@
     "skipLibCheck": true // Skip type checking all .d.ts files
   },
   // "exclude": ["./src/dev.ts"],
-  "include": ["./src/dev.ts"]
+  "include": ["./src/main.ts", "./src/logging/logging.ts"]
 }
