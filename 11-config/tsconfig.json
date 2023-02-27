@@ -22,7 +22,7 @@
 
     /* Emit */
     // "declaration": true, // 내가 작성한 코드를 라이브러리 형식으로 다른 사람에게 제공할 것이 아니라면 잘 쓰지 않는다
-    "sourceMap": true, // 디버깅시 매우 유용 (Create source map files for emitted JavaScript files)
+    "sourceMap": true, // 디버깅시 유용 ✨ (비활성화시 Sources 탭에는 우리가 작성한 ts파일이 아닌 컴파일된 js파일만 존재 => 컴파일된 js코드로 디버깅하지 않기 위해 사용!!)
     // "outFile": "./", // 작성한 다수의 타입스크립트 파일을 딱 하나의 자바스크립트 파일로 만들때 사용
     "outDir": "./build", // Specify an output folder for all emitted files.
     // "removeComments": true, // 코멘트를 전부 제거
